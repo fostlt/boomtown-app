@@ -36,5 +36,4 @@ const queryResolvers = app => ({
     // -------------------------------
   },
 });
-
 module.exports = queryResolvers;

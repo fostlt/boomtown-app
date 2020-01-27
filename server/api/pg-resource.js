@@ -9,7 +9,7 @@ module.exports = postgres => {
   return {
     async createUser({ fullname, email, password }) {
       const newUserInsert = {
-        text: "", // @TODO: Authentication - Server
+        text: 'INSERT INTO users (fullname, email, password, bio) VALUES  ($1, $2, $3) RETURNING *;', // @TODO: Authentication - Server
         values: [fullname, email, password],
       };
       try {
@@ -28,7 +28,7 @@ module.exports = postgres => {
     },
     async getUserAndPasswordForVerification(email) {
       const findUserQuery = {
-        text: "", // @TODO: Authentication - Server
+        text: 'SELECT * FROM users WHERE email = $1', // @TODO: Authentication - Server
         values: [email],
       };
       try {
@@ -61,18 +61,16 @@ module.exports = postgres => {
        */
 
       const findUserQuery = {
-        text: "", // @TODO: Basic queries
+        text: 'SELECT id, fullname, email, bio FROM users WHERE id = $1 RETURNING *', // @TODO: Basic queries
         values: [id],
       };
-
-      /**
-       *  Refactor the following code using the error handling logic described above.
-       *  When you're done here, ensure all of the resource methods in this file
-       *  include a try catch, and throw appropriate errors.
-       *
-       *  Ex: If the user is not found from the DB throw 'User is not found'
-       *  If the password is incorrect throw 'User or Password incorrect'
-       */
+      try {
+        const user = await postgres.query(findUserQuery);
+        if (!user) throw "User was not found.";
+        return user.rows[0];
+      } catch (e) {
+        throw "User was not found.";
+      }
 
       const user = await postgres.query(findUserQuery);
       return user;
@@ -99,11 +97,7 @@ module.exports = postgres => {
     },
     async getItemsForUser(id) {
       const items = await postgres.query({
-        /**
-         *  @TODO:
-         *  Get all Items for user using their id
-         */
-        text: ``,
+        text: `SELECT * FROM items WHERE ownerid = $1`,
         values: [id],
       });
       return items.rows;
@@ -133,23 +127,7 @@ module.exports = postgres => {
       return tags.rows;
     },
     async saveNewItem({ item, user }) {
-      /**
-       *  @TODO: Adding a New Item
-       *
-       *  Adding a new Item requires 2 separate INSERT statements.
-       *
-       *  All of the INSERT statements must:
-       *  1) Proceed in a specific order.
-       *  2) Succeed for the new Item to be considered added
-       *  3) If any of the INSERT queries fail, any successful INSERT
-       *     queries should be 'rolled back' to avoid 'orphan' data in the database.
-       *
-       *  To achieve #3 we'll ue something called a Postgres Transaction!
-       *  The code for the transaction has been provided for you, along with
-       *  helpful comments to help you get started.
-       *
-       *  Read the method and the comments carefully before you begin.
-       */
+/* Text 1  */
 
       return new Promise((resolve, reject) => {
         /**
