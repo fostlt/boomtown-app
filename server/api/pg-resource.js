@@ -29,7 +29,7 @@ module.exports = postgres => {
     },
     async getUserAndPasswordForVerification(email) {
       const findUserQuery = {
-        text: "SELECT * FROM users WHERE email = $1", // @TODO: Authentication - Server
+        text: "", // @TODO: Authentication - Server
         values: [email]
       };
       try {
@@ -73,10 +73,6 @@ module.exports = postgres => {
       } catch (e) {
         throw "User was not found.";
       }
-
-      const user = await postgres.query(findUserQuery);
-      return user;
-      // -------------------------------
     },
     async getItems(idToOmit) {
       const items = await postgres.query({
@@ -102,7 +98,9 @@ module.exports = postgres => {
       return items.rows;
     },
     async getTags() {
-      const tags = await postgres.query();
+      const tags = await postgres.query({
+        text: `SELECT' * FROM tags`
+      });
       return tags.rows;
     },
     async getTagsForItem(id) {
@@ -133,11 +131,11 @@ module.exports = postgres => {
                 text: `INSERT INTO items (title, description, ownerid) VALUES ($1, $2, $3) returning *;`,
                 values: [title, description, user.id] /* STOP FORGETTING TO WRITE VALUES!!!!! */
               };
-              const newItem = await postgres.query(createItemQuery);
-              const itemid = newItem.rows[0].id;
+              const newItem = await postgres.query(genItemQuery);
+              let testItemId = newItem.rows[0].id;
 
               let genTag = {
-                text: `INSERT INTO itemtags (itemid, tagid) VALUES ${tagsQueryString([...tags], itemId, [])}`,
+                text: `INSERT INTO itemtags (itemid, tagid) VALUES ${tagsQueryString([...tags], testItemId, [])}`,
                 values: tags.map(tag => tag.id),
               }
               /* (use the'tagsQueryString' helper function provided) */
