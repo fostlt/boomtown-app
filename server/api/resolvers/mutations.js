@@ -134,14 +134,18 @@ const mutationResolvers = app => ({
     context.req.res.clearCookie(app.get("JWT_COOKIE_NAME"));
     return true;
   },
-  async addItem(parent, args, context, info) {
-    const user = await jwt.decode(context.token, app.get("JWT_SECRET"));
-    const newItem = await context.pgResource.saveNewItem({
-      item: args.item,
-      user,
+  async addItem(parent, {item}, {pgResource}, info) {
+    try {
+    let user = 1;
+    const newItem = await pgResource.saveNewItem({
+      item,
+      user
     });
     return newItem;
-  },
+  }catch (e){
+    throw new ApolloError(e);
+  }
+}
 });
 
 module.exports = mutationResolvers;
