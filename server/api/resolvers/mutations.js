@@ -136,10 +136,9 @@ const mutationResolvers = app => ({
   },
   async addItem(parent, {item}, {pgResource}, info) {
     try {
-    let user = 1;
     const newItem = await pgResource.saveNewItem({
       item,
-      user
+      user: 1
     });
     return newItem;
   }catch (e){

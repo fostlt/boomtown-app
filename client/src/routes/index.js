@@ -1,11 +1,25 @@
 import React, { Fragment } from 'react';
-import { Redirect, Route, Switch } from 'react-router';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import Items from '../pages/Items';
+import Home from '../pages/Home';
+import Share from '../pages/Share';
+import Profile from '../pages/Profile';
 
 export default () => (
   <Fragment>
     {/* @TODO: Add your menu component here */}
     <Switch>
-      {/**
+      
+      <Route exact path="/items" component={Items} />
+      <Route exact path="/profile" component={Profile} />
+      <Route exact path="/profile/:id" component={Profile} />
+      <Route exact path="/share" component={Share} />
+      <Route exact path="/home" component={Home} />
+      <Redirect from="*" to="/items" />
+      
+      
+      {
+      /**
        * @TODO: Define routes here for: /items, /profile, /profile/:userid, and /share
        *
        * Provide a wildcard redirect to /items for any undefined route using <Redirect />.

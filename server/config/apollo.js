@@ -8,6 +8,7 @@ module.exports = ({ app, pgResource }) => {
   resolvers = resolvers(app);
 
   /*
+    NOTE - KEEP FOR LATER
    * notes on gql tools - https://www.apollographql.com/docs/apollo-server/v2/api/graphql-tools.html#makeExecutableSchema
    */
 
