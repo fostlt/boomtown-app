@@ -13,7 +13,7 @@ class ItemsContainer extends Component {
       //if (loading) return <FullScreenLoader />; /* DOESN'T EXIST */
       if (loading) console.log(loading);
       if (error) return `Error! ${error.message}`;
-      console.log(data);
+      console.log(data, 'test');
     return <Items items={data}/>;
   }}
     </Query>
@@ -21,3 +21,4 @@ class ItemsContainer extends Component {
 }
 }
 export default ItemsContainer;
+
