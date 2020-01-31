@@ -147,7 +147,7 @@ module.exports = postgres => {
             SELECT * FROM tags 
             INNER JOIN itemtags 
             ON itemtags.tagid = tagid 
-            WHERE itemtags.id = $1
+            WHERE itemtags.itemid = $1
           `,
           values: [id]
         };

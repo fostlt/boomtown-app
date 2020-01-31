@@ -47,10 +47,10 @@ export const ALL_USER_ITEMS_QUERY = gql`
     bio
     email
     fullname
-    borrowed {
+    items{
       ...ItemFields
     }
-    items{
+    borrowed {
       ...ItemFields
     }
   }
@@ -67,25 +67,28 @@ export const ALL_TAGS_QUERY = gql`
   }
 `;
 
-  // export const ADD_ITEM_MUTATION = gql`
+  export const ADD_ITEM_MUTATION = gql`
+  mutation addItem($item: NewItemInput!){
+    addItem(item: $item){
+      id
+    }
+  }
 
-
-
-  //   mutation addItem($item: NewItemInput!) {
-  //     # @TODO: Pass the item and image into the addItem mutation as arguments
-  //     # and return the new item id when the mutation is complete.
-  //   }
-  // `;
+  `;
 
 /**
  * Auth-related queries and mutations.
  */
 
-// export const VIEWER_QUERY = gql`
-//   query {
-//     # @TODO: Query the id, email, fullname, and bio fields for the viewer.
-//   }
-// `;
+export const VIEWER_QUERY = gql`
+  query {
+    id
+    email
+    fullname
+    bio
+    # @TODO: Query the id, email, fullname, and bio fields for the viewer.
+  }
+`;
 
 /* Do all except these for now */
 
