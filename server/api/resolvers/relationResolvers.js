@@ -23,7 +23,7 @@ const relationResolvers = {
     },
     async tags(parent, args, { pgResource }, info) {
       try {
-        const tags = await pgResource.getTagForItem(parent.id);
+        const tags = await pgResource.getTagsForItem(parent.id);
         return tags;
       } catch (e) {
         throw new ApolloError(e);

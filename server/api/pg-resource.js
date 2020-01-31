@@ -132,7 +132,7 @@ module.exports = postgres => {
       try {
         const tags = await postgres.query(
           `
-            SELECT * FROM tags
+          SELECT * FROM tags
           `
         );
         return tags.rows;
@@ -146,17 +146,19 @@ module.exports = postgres => {
           text: `
             SELECT * FROM tags 
             INNER JOIN itemtags 
-            ON tags.id = itemtags.tagid 
-            WHERE itemtags.itemid = $1
+            ON itemtags.tagid = tagid 
+            WHERE itemtags.id = $1
           `,
           values: [id]
         };
+        const tags = await postgres.query(tagsQuery);
+        return tags.rows;
       } catch (err) {
         throw err
       }
 
-      const tags = await postgres.query(tagsQuery);
-      return tags.rows;
+      
+      
     },
     async saveNewItem({ item, user }) {
       /**

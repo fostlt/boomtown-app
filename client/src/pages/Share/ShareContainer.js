@@ -12,6 +12,7 @@ class ShareContainer extends Component {
           {({ loading, error, data }) => {
       //if (loading) return <FullScreenLoader />;
       if (error) return `Error! ${error.message}`;
+      
     return <Share tags={data.tags}/>;
   }}
     </Query>

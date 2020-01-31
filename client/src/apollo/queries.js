@@ -25,11 +25,9 @@ fragment ItemFields on Item {
     id
     fullname
     email
-    bio
+    bio 
   }
 }
-
-
 `;
 
 export const ALL_ITEMS_QUERY = gql`

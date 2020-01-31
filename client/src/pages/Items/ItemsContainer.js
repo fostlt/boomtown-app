@@ -13,7 +13,7 @@ class ItemsContainer extends Component {
       //if (loading) return <FullScreenLoader />; /* DOESN'T EXIST */
       if (loading) console.log(loading);
       if (error) return `Error! ${error.message}`;
-      console.log(data, 'test');
+      console.log(data, 'data');
     return <Items items={data}/>;
   }}
     </Query>
