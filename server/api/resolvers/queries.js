@@ -33,7 +33,7 @@ const queryResolvers = app => ({
       throw new ApolloError(e);
     } /* APOLLO TWO L'S!!!!!!!! */
   },
-  async tags(parent, {id}, args, {pgResource}, info) {
+  async tags(parent, {id}, {pgResource}, info) {
     try{
       const tags = await pgResource.getTags(id);
       return tags;

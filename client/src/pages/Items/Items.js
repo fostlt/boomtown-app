@@ -1,13 +1,16 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import styles from './styles';
+//import { withStyles } from '@material-ui/core/styles';
+//import styles from './styles';
+import ItemsGrid from '../../components/ItemsGrid';
+
 
 const Items = ({ items }) => {
   return (
     <div>
-      
+      <ItemsGrid items={items}/>
     </div>
   );
 };
 
-export default withStyles(styles)(Items);
+//export default withStyles(styles)(Items);
+export default Items;

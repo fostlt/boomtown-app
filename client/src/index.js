@@ -9,6 +9,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import theme from "./theme";
 import AppRoutes from './routes';
 
+
 // @TODO: Uncomment each module as needed in your client app
  
  
@@ -70,6 +71,7 @@ const App = () => {
       <CssBaseline />
       <ApolloProvider client={client}>
       <Router>
+        
         <AppRoutes/>
       </Router>
 
