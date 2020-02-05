@@ -8,7 +8,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import registerServiceWorker from "./registerServiceWorker";
 import theme from "./theme";
 import AppRoutes from './routes';
-
+import ItemPreviewProvider from './context/ItemPreviewProvider';
+import ViewerProvider from './context/ViewerProvider';
 
 // @TODO: Uncomment each module as needed in your client app
  
@@ -67,14 +68,17 @@ import "./index.css";
 
 const App = () => {
   return (
+
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <ApolloProvider client={client}>
+        <ViewerProvider>
+      <ItemPreviewProvider>
       <Router>
-        
         <AppRoutes/>
       </Router>
-
+      </ItemPreviewProvider>
+      </ViewerProvider>
       <Home />
       </ApolloProvider>
     </MuiThemeProvider>

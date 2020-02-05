@@ -18,7 +18,8 @@ class ItemCard extends Component {
 
   render() {
     let { item, classes } = this.props;
-    return (
+    /* added item && infront of return -> white screen -> maybe try on individual items */
+    return ( item &&
       <div>
         <Card className={classes.card}>
           <CardActionArea>

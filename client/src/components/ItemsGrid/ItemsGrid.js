@@ -22,10 +22,7 @@ class ItemsGrid extends Component {
           lg={12}
         >
           <Grid container justify="center" spacing={3}>
-            {items
-              ? items.map(item => {
-                  /* console.log("Current Item: ", item); */
-
+            {items ? items.map(item => {
                   return (
                     <Grid key={item.id} item>
                       <ItemCard item={item} />

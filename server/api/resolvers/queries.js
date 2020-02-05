@@ -15,7 +15,13 @@ const queryResolvers = app => ({
      *  To provide information about the user's session to the app, return the user.
      *  If there is no user, the user has signed out, in which case user will be null.
      */
-    return null;
+    //return null;
+    let fakeuser = {
+      id: 1,
+      email: "john@doe.com",
+      fullname: "John Doe",
+      bio: "NA"
+    };
   },
   async user(parent, { id }, { pgResource }, info) {
     try {
