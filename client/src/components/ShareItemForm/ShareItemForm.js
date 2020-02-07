@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Field, FormSpy } from "react-final-form";
-import { TextField, withStyles,Typography } from "@material-ui/core";
+import { withStyles,Typography } from "@material-ui/core";
+/* add TextField instead of ... above  */
 import HomeIcon from "@material-ui/icons/Home";
 import styles from "./styles.js";
 import { ItemPreviewContext } from "../../context/ItemPreviewProvider";

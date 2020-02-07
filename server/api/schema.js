@@ -1,8 +1,8 @@
-const { gql } = require("apollo-server-express");
+const { gql } = require('apollo-server-express');
+
 
 module.exports = gql`
-  # scalar Date
-
+  scalar Date
   type Item {
     id: ID!
     title: String!
@@ -10,10 +10,9 @@ module.exports = gql`
     description: String!
     itemowner: User!
     tags: [Tag]
-    created: String!
+    created: Date!
     borrower: User
   }
-
   type User {
     id: ID!
     email: String!
@@ -22,45 +21,45 @@ module.exports = gql`
     items: [Item]
     borrowed: [Item]
   }
-
   type Tag {
     id: ID!
     title: String!
   }
-
-  type AuthPayload {
+  type AuthPayLoad {
     token: String
     user: User
   }
-
+  input SignUpInput {
+    fullname: String!
+    email: String!
+    password: String!
+  }
+  input LoginInput {
+    email: String!
+    password: String!
+  }
   input AssignedTag {
     id: ID!
     title: String!
   }
-
   input AssignedBorrower {
     id: ID!
   }
-
   input NewItemInput {
     title: String!
-    description: String!
+    description: String
     tags: [AssignedTag]!
   }
-
   type Query {
     user(id: ID!): User
     viewer: User
     items(filter: ID): [Item]
     tags: [Tag]
   }
-
   type Mutation {
-    addItem (
-      item: NewItemInput!
-    ): Item
-    signup: Boolean
-    login: Boolean
-    logout: Boolean
+    signup(user: SignUpInput!): AuthPayLoad!
+    login(user: LoginInput!): AuthPayLoad!
+    logout: Boolean!
+    addItem(item: NewItemInput!): Item
   }
 `;
