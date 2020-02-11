@@ -13,7 +13,7 @@ class ItemsGrid extends Component {
   render() {
     let { items, classes } = this.props;
     return (
-      <div>
+      <div className={classes.root}>
         <Grid
           className={classes.content}
           container

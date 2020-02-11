@@ -1,10 +1,9 @@
+  
 import { createStyles } from "@material-ui/styles";
-
 const styles = () =>
   createStyles({
-    root: {
-        background: "#282828"
-    }
-
-});
+    profile: {
+      marginTop: "100px",
+    },
+  });
 export default styles;

@@ -1,38 +1,46 @@
-const { ApolloError } = require("apollo-server");
+const { ApolloError } = require('apollo-server');
 
 const relationResolvers = {
   User: {
-    async items(parent, args, { pgResource }, info) {
-      const items = await pgResource.getItemsForUser(parent.id);
-      return items;
-    },
-    async borrowed(parent, args, { pgResource } , info) {
-     const borrowed = await pgResource.getBorrowedItemsForUser(parent.id);
-      return borrowed;
-    }
-  },
-
-  Item: {
-    async itemowner(parent, args, { pgResource }, info) {
+    async items({ id }, args, { pgResource }, info) {
       try {
-        const itemowner = await pgResource.getUserById(parent.ownerid);
-        return itemowner;
+        const items = await pgResource.getItemsForUser(id);
+        return items;
       } catch (e) {
         throw new ApolloError(e);
       }
     },
-    async tags(parent, args, { pgResource }, info) {
+    async borrowed({ id }, args, { pgResource }, info) {
       try {
-        const tags = await pgResource.getTagsForItem(parent.id);
+        const items = await pgResource.getBorrowedItemsForUser(id);
+        return items;
+      } catch (e) {
+        throw new ApolloError(e);
+      }
+    }
+  },
+
+  Item: {
+    async itemowner({ ownerid }, args, { pgResource }, info) {
+      try {
+        const items = await pgResource.getUserById(ownerid);
+        return items;
+      } catch (e) {
+        throw new ApolloError(e);
+      }
+    },
+    async tags({ id }, args, { pgResource }, info) {
+      try {
+        const tags = await pgResource.getTagsForItem(id);
         return tags;
       } catch (e) {
         throw new ApolloError(e);
       }
     },
-    async borrower(parent, args, { pgResource }, info) {
+    async borrower({ borrowerid }, args, { pgResource }, info) {
       try {
-        const borrower = await pgResource.getUserById(parent.borrowerid);
-        return borrower;
+        const tags = await pgResource.getUserById(borrowerid);
+        return tags;
       } catch (e) {
         throw new ApolloError(e);
       }

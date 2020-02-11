@@ -1,16 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { MuiThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { ApolloProvider } from "react-apollo";
-import client from "./apollo";
-import { BrowserRouter as Router } from "react-router-dom";
-import registerServiceWorker from "./registerServiceWorker";
-import theme from "./theme";
-import AppRoutes from "./routes";
-import ItemPreviewProvider from "./context/ItemPreviewProvider";
-import ViewerProvider from "./context/ViewerProvider";
-import "./index.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import AppRoutes from './routes';
+import client from './apollo';
+import { ApolloProvider } from 'react-apollo';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { CssBaseline, MuiThemeProvider } from '@material-ui/core/';
+import registerServiceWorker from './registerServiceWorker';
+import ItemPreviewProvider from './context/ItemPreviewProvider';
+import ViewerProvider from './context/ViewerProvider';
+import theme from './theme';
+
+import './index.css';
 
 const App = () => {
   return (
@@ -29,5 +29,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

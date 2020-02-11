@@ -8,6 +8,7 @@ const ShareItemPreview = ({ classes }) => {
       {({ item }) => {
         return (
           <div>
+           
             <ItemCard item={item}></ItemCard>
           </div>
         );

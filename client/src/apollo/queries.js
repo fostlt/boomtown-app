@@ -1,9 +1,5 @@
 import gql from "graphql-tag";
 
-/**
- * Item and user-related queries and mutations.
- */
-
 const ItemFields = gql`
   fragment ItemFields on Item {
     id
@@ -71,24 +67,21 @@ export const ADD_ITEM_MUTATION = gql`
     addItem(item: $item) {
       id
     }
+    # @TODO: Pass the item and image into the addItem mutation as arguments
+    # and return the new item id when the mutation is complete.
   }
 `;
-
-/**
- * Auth-related queries and mutations.
- */
 
 export const VIEWER_QUERY = gql`
   query {
-    id
-    email
-    fullname
-    bio
+    viewer {
+      id
+      email
+      fullname
+      bio
+    }
   }
 `;
-
-/* Do all except these for now */
-
 export const LOGOUT_MUTATION = gql`
   mutation {
     logout
@@ -96,7 +89,7 @@ export const LOGOUT_MUTATION = gql`
 `;
 
 export const SIGNUP_MUTATION = gql`
-  mutation signup($user: SignupInput!) {
+  mutation signup($user: SignUpInput!) {
     signup(user: $user) {
       token
       user {

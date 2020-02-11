@@ -21,4 +21,5 @@ const PrivateRoute = ({ component: Component, location, ...rest }) => (
     )}
   </ViewerContext.Consumer>
 );
+  
 export default PrivateRoute;
