@@ -13,8 +13,8 @@ const useStyles = makeStyles(theme => ({
   },
   logo: {
     width: "50px",
-    marginTop: "35px",
-    marginBottom: "35px"
+    marginTop: "10px",
+    marginBottom: "10px"
   },
   container: {
     display: "flex",

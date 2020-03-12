@@ -16,12 +16,12 @@ const styles = theme =>
       fontSize: "1.3rem"
     },
     test: {
-      marginLeft: "80vh",
       display: "flex",
       flexDirection: "column",
+      width: 500,
       position: "absolute",
-      top: "250px",
-      width: "600px"
+      right: 400,
+      top: 150
     },
 
   });

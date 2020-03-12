@@ -4,13 +4,13 @@ const styles = () =>
   createStyles({
     card: {
       marginTop: "2rem",
-      width: 500,
+      width: 500
     },
     media: {
-    height: 250,
+      height: 400
     },
     profile: {
-      fontSize: "1.3rem",
+      fontSize: "1.3rem"
     },
     button: {
       border: "1px solid rgba(0, 0, 0, 0.50)"
@@ -23,8 +23,11 @@ const styles = () =>
       color: "#909090"
     },
     description: {
-      fontSize: "1.2rem",
+      fontSize: "1.2rem"
     },
-
+    container: {
+      marginLeft: 200
+      
+    }
   });
 export default styles;

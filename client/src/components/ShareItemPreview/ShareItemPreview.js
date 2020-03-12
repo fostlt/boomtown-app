@@ -1,14 +1,14 @@
 import React from "react";
 import { ItemPreviewContext } from "../../context/ItemPreviewProvider";
 import ItemCard from "../ItemCard";
+import styles from "./styles";
 
 const ShareItemPreview = ({ classes }) => {
   return (
     <ItemPreviewContext.Consumer>
       {({ item }) => {
         return (
-          <div>
-           
+          <div className={styles.container}>
             <ItemCard item={item}></ItemCard>
           </div>
         );
