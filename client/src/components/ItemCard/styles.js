@@ -26,7 +26,7 @@ const styles = () =>
       fontSize: "1.2rem"
     },
     container: {
-      marginLeft: 200
+      marginLeft: 50
       
     }
   });

@@ -21,7 +21,7 @@ class ItemsGrid extends Component {
           item
           lg={12}
         >
-          <Grid container justify="center" spacing={3}>
+          <Grid container className={styles.container} spacing={3}>
             {items ? items.map(item => {
                   return (
                     <Grid key={item.id} item>
