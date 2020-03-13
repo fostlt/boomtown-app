@@ -16,7 +16,7 @@ const FullScreenLoader = props => {
       <CircularProgress 
       className={classes.loading}/>
       <Typography className={classes.text}>
-        "What is the Shadow DOM?"
+        "Loading! Please wait..."
       </Typography>
     </Grid>
   );

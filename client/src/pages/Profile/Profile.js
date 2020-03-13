@@ -2,11 +2,8 @@ import React from "react";
 import { Grid, Typography, Card, CardContent } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles";
-import ProfileCard from "../../components/ProfileCard";
 import Gravatar from "react-gravatar";
-//import ItemGrid from "../../components/ItemsGrid";
-//add itemgrid below profile card'
-import ItemCard from "../../components/ItemCard/ItemCard"
+
 
 const Profile = props => {
   const { profile, classes } = props;

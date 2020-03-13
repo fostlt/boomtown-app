@@ -21,27 +21,32 @@ class ItemCard extends Component {
   render() {
     let { item, classes } = this.props;
     /* added item && infront of return -> white screen -> maybe try on individual items */
-    return ( 
+    console.log(item);
+    return (
       <div className={classes.container}>
         <Card className={classes.card}>
           <CardActionArea>
-            <NavLink to={(item && `/profile/` + item.itemowner.id)}>
-            <CardMedia
-              component="img"
-              height="400"
-              image="https://www.fillmurray.com/300/300"
-            />
+            <NavLink to={item && `/profile/` + item.id}>
+              <CardMedia
+                component="img"
+                height="400"
+                image="https://www.fillmurray.com/300/300"
+              />
             </NavLink>
             <CardContent>
               <Typography className={classes.profile}>
                 <Gravatar email={item && item.itemowner.email} />
-                { item && '  ' + item.itemowner.fullname}
+                {item && "  " + item.itemowner.fullname}
               </Typography>
               <Typography className={classes.created}>
-                  {moment(item && item.created).fromNow()}
-                </Typography>
-              <Typography className={classes.title}>{item && item.title}</Typography>
-              <Typography className={classes.description}>{item && item.description}</Typography>
+                {moment(item && item.created).fromNow()}
+              </Typography>
+              <Typography className={classes.title}>
+                {item && item.title}
+              </Typography>
+              <Typography className={classes.description}>
+                {item && item.description}
+              </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
@@ -56,10 +61,6 @@ class ItemCard extends Component {
 }
 
 export default withStyles(styles)(ItemCard);
-
-
-
-
 
 // import React, { Component } from "react";
 // import { withStyles } from "@material-ui/core/styles";
@@ -84,7 +85,7 @@ export default withStyles(styles)(ItemCard);
 //   render() {
 //     let { item, classes } = this.props;
 //     /* added item && infront of return -> white screen -> maybe try on individual items */
-//     return ( 
+//     return (
 //       <div className={classes.container}>
 //         <Card className={classes.card}>
 //           <CardActionArea>

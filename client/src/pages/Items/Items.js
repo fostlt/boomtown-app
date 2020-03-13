@@ -1,11 +1,10 @@
-import React from 'react';
-import ItemsGrid from '../../components/ItemsGrid';
-
+import React from "react";
+import ItemsGrid from "../../components/ItemsGrid";
 
 const Items = ({ items }) => {
   return (
     <div>
-      <ItemsGrid items={items}/>
+      <ItemsGrid items={items} />
     </div>
   );
 };
