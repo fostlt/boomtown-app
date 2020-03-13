@@ -73,7 +73,7 @@ const NavBar = ({ location }) => {
                         style={{ color: "black" }}
                         onClick={handleClose}
                       >
-                        <PowerSettingsNew  style={{ marginRight: 10 }} />
+                        <PowerSettingsNew style={{ marginRight: 10 }} />
                         Profile
                       </MenuItem>
                     </Link>

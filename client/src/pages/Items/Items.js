@@ -1,12 +1,19 @@
 import React from "react";
 import ItemsGrid from "../../components/ItemsGrid";
+import styles from "./styles";
+import { Container, withStyles } from '@material-ui/core/';
+import {createMuiTheme } from "@material-ui/core/styles";
 
-const Items = ({ items }) => {
+const Items = ({ items, classes }) => {
   return (
-    <div>
+    <Container maxWidth="xl" className={classes.root}>
       <ItemsGrid items={items} />
-    </div>
+    </Container>
   );
 };
 
-export default Items;
+
+export default withStyles(styles)(Items);
+
+
+

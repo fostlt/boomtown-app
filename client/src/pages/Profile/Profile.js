@@ -1,12 +1,18 @@
 import React from "react";
-import { Grid, Typography, Card, CardContent } from "@material-ui/core";
+import {
+  Grid,
+  Typography,
+  Card,
+  CardContent,
+  Container
+} from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles";
 import Gravatar from "react-gravatar";
-
+import ItemCard from "../../components/ItemCard";
 
 const Profile = props => {
-  const { profile, classes } = props;
+  const { profile, classes, user, viewer } = props;
   return (
     <div className={classes.container}>
       <Card className={classes.profile}>
@@ -27,6 +33,20 @@ const Profile = props => {
           </Typography>
         </CardContent>
       </Card>
+      {profile.items.length ? (
+        <Container>
+          <Typography style={{ marginTop: 15 }} variant="h4" color="primary">
+            Shared Items
+          </Typography>
+          <Grid>
+            {profile.items.map(item => (
+              <Grid item key={item.id} md={3}>
+                <ItemCard item={item} viewer={viewer} />
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      ) : null}
     </div>
   );
 };
