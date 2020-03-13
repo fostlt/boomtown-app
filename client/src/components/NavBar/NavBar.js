@@ -15,7 +15,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { LOGOUT_MUTATION } from "../../apollo/queries";
 import { Mutation } from "react-apollo";
-import { Fingerprint, PowerSettingsNew } from "@material-ui/icons/";
+import { Fingerprint, PowerSettingsNew, MoreVert } from "@material-ui/icons/";
 
 const NavBar = ({ location }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -59,7 +59,8 @@ const NavBar = ({ location }) => {
                     aria-haspopup="true"
                     onClick={handleClick}
                   >
-                    <MenuIcon />
+                    <MoreVert />
+                    
                   </IconButton>
                   <Menu
                     id="simple-menu"
@@ -73,18 +74,18 @@ const NavBar = ({ location }) => {
                         style={{ color: "black" }}
                         onClick={handleClose}
                       >
-                        <PowerSettingsNew style={{ marginRight: 10 }} />
+                        <Fingerprint style={{ marginRight: 10 }} />
                         Profile
                       </MenuItem>
+                      
                     </Link>
                     <MenuItem onClick={logout}>
-                      <Fingerprint style={{ marginRight: 10 }} /> Sign out
+                      <PowerSettingsNew style={{ marginRight: 10 }} /> Sign out
                     </MenuItem>
                   </Menu>
                 </div>
               </Toolbar>
             </AppBar>
-            <Toolbar />
             <Toolbar />
           </div>
         );

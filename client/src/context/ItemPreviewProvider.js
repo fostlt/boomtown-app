@@ -6,24 +6,23 @@ const IntitialState = {
   imageurl: "http://via.placeholder.com/350x250?text=Please+select+an+image",
   itemowner: {},
   created: new Date(),
-  title: "dummy title",
-  description: "dummy description",
+  title: "Name your item",
+  description: "Describe your item",
   tags: []
 };
 
 const ItemPreviewProvider = props => {
   const [item, setItem] = React.useState(IntitialState);
-  /* add item: to initital state */
-  
+
   const updatePreview = itemInput => {
-    const newItem = {
-      item: { ...item, ...itemInput }
-    }; /* itemInput is the new values -> right to left */
-    setItem({ item: newItem });
+    const newItem = 
+   { ...item, ...itemInput }
+    
+    setItem(newItem );
   };
 
   const resetPreview = () => {
-    setItem({ item: IntitialState });
+    setItem(IntitialState);
   };
 
   return (

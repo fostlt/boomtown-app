@@ -90,11 +90,12 @@ class ShareItemForm extends Component {
                     />
 
                     <div className={classes.test}>
-                      <Typography variant="h2">
+                      <Typography
+                        style={{ fontWeight: 40, fontSize: 80 }}
+                        variant="h2"
+                      >
                         Share. Borrow. Prosper.
                       </Typography>
-
-                      
 
                       <Field
                         name="title"
@@ -188,6 +189,13 @@ class ShareItemForm extends Component {
                         name="submit"
                         render={(input, meta) => (
                           <button
+                            style={{
+                              height: "50px",
+                              width: "150px",
+                              borderRadius: 8,
+                              border: "1px solid rgba(0, 0, 0, 0.50)",
+                              marginTop: 10
+                            }}
                             type="submit"
                             onSubmit={handleSubmit}
                             className={classes.submit}

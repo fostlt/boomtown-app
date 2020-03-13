@@ -1,6 +1,7 @@
 const styles = theme => ({
   root: {
-    background: theme.palette.secondary.main
+    background: theme.palette.secondary.main,
+    
   }
 });
 

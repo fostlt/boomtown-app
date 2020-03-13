@@ -12,35 +12,39 @@ import Gravatar from "react-gravatar";
 import ItemCard from "../../components/ItemCard";
 
 const Profile = props => {
-  const { profile, classes, user, viewer } = props;
+  const { profile, classes, viewer } = props;
   return (
     <div className={classes.container}>
       <Card className={classes.profile}>
         <CardContent className={classes.content}>
-          <Typography variant="h2">
-            <Gravatar
+          <div className={classes.containerImage}>
+          <Typography>
+            <Gravatar style={{borderRadius: 50}}
               email={(profile && profile.email) || "No email entered"}
             />
-            {(profile && profile.fullname && profile.fullname) ||
-              "No name entered"}
+            <Typography style={{fontSize: 40, fontWeight: 500}}>{(profile && profile.fullname && profile.fullname) ||
+              "No name entered"}</Typography>
           </Typography>
-          <Typography>
-            {profile && profile.items.length} Items Shared{" "}
+          </div>
+          <Typography style={{fontSize: 30}}>
+            {profile && profile.items.length} Items Shared,{" "}
+
+            
             {profile && profile.borrowed.length} Items Borrowed
           </Typography>
-          <Typography>
+          <Typography style={{fontSize: 30}}>
             {(profile && profile.bio && profile.bio) || "No bio. :("}
           </Typography>
         </CardContent>
       </Card>
       {profile.items.length ? (
         <Container>
-          <Typography style={{ marginTop: 15 }} variant="h4" color="primary">
+          <Typography style={{ marginTop: 15}} variant="h4" color="primary">
             Shared Items
           </Typography>
-          <Grid>
+          <Grid style={{display: "flex"}}>
             {profile.items.map(item => (
-              <Grid item key={item.id} md={3}>
+              <Grid item key={item.id} md={10}>
                 <ItemCard item={item} viewer={viewer} />
               </Grid>
             ))}

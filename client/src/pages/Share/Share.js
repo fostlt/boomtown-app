@@ -4,11 +4,15 @@ import styles from "./styles";
 import ShareItemForm from "../../components/ShareItemForm";
 import ShareItemPreview from "../../components/ShareItemPreview";
 
-const Share = ({ tags, viewer }) => {
+const Share = ({ tags, viewer, classes}) => {
   return (
-    <div>
+    <div className={classes.container}>
+      <div className={classes.subContainerOne}>
       <ShareItemPreview viewer={viewer} />
+      </div>
+      <div className={classes.subContainer}>
       <ShareItemForm tags={tags} />
+      </div>
     </div>
   );
 };

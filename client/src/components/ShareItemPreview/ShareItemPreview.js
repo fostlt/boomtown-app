@@ -6,10 +6,10 @@ import styles from "./styles";
 const ShareItemPreview = () => {
   return (
     <ItemPreviewContext.Consumer>
-      {({ item }) => {
+      {({ state }) => {
         return (
-          <div className={styles.container}>
-            <ItemCard item={item}></ItemCard>
+          <div>
+            <ItemCard item={state}></ItemCard>
           </div>
         );
       }}

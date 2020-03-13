@@ -8,7 +8,7 @@ const styles = theme =>
     tagIcons: {
       display: "flex",
       fontSize: "1.2rem",
-      marginBottom: ".5rem"
+      marginBottom: ".5rem",
     },
     submit: {
       width: "180px",
@@ -18,11 +18,9 @@ const styles = theme =>
     test: {
       display: "flex",
       flexDirection: "column",
-      width: 500,
-      position: "absolute",
-      right: 400,
-      top: 150
+      width: 650,
     },
+
 
   });
 
