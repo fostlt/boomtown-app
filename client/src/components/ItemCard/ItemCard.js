@@ -9,7 +9,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Gravatar from "react-gravatar";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import moment from "moment";
 
 class ItemCard extends Component {
@@ -44,9 +44,13 @@ class ItemCard extends Component {
               <Typography className={classes.title}>
                 {item && item.title}
               </Typography>
+
+
+              
               <Typography className={classes.description}>
                 {item && item.description}
               </Typography>
+
             </CardContent>
           </CardActionArea>
           <CardActions>

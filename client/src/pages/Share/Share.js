@@ -4,10 +4,10 @@ import styles from "./styles";
 import ShareItemForm from "../../components/ShareItemForm";
 import ShareItemPreview from "../../components/ShareItemPreview";
 
-const Share = ({ tags }) => {
+const Share = ({ tags, viewer }) => {
   return (
     <div>
-      <ShareItemPreview />
+      <ShareItemPreview viewer={viewer} />
       <ShareItemForm tags={tags} />
     </div>
   );

@@ -4,37 +4,30 @@ import ItemCard from "../ItemCard";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
 
-class ItemsGrid extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    let { items, classes } = this.props;
-    return (
-      <div className={classes.root}>
-        <Grid
-          className={classes.content}
-          container
-          alignContent="center"
-          item
-          lg={12}
-        >
-          <Grid container className={styles.container} spacing={3}>
-            {items
-              ? items.map(item => {
-                  return (
-                    <Grid key={item.id} item>
-                      <ItemCard item={item} />
-                    </Grid>
-                  );
-                })
-              : null}
-          </Grid>
+const ItemsGrid = ({ items, classes }) => {
+  console.log("items ", items)
+  return (
+    <div className={classes.root}>
+      <Grid
+        className={classes.content}
+        container
+        alignContent="center"
+        item
+        lg={12}
+      >
+        <Grid container className={styles.container} spacing={3}>
+          {items.map(item => {
+                return (
+                  <Grid item key={item.id}>
+                    <ItemCard item={item} />
+                  </Grid>
+                );
+              })
+            }
         </Grid>
-      </div>
-    );
-  }
-}
+      </Grid>
+    </div>
+  );
+};
+
 export default withStyles(styles)(ItemsGrid);

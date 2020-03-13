@@ -3,7 +3,7 @@ import { ItemPreviewContext } from "../../context/ItemPreviewProvider";
 import ItemCard from "../ItemCard";
 import styles from "./styles";
 
-const ShareItemPreview = ({ classes }) => {
+const ShareItemPreview = () => {
   return (
     <ItemPreviewContext.Consumer>
       {({ item }) => {

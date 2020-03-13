@@ -94,6 +94,8 @@ class ShareItemForm extends Component {
                         Share. Borrow. Prosper.
                       </Typography>
 
+                      
+
                       <Field
                         name="title"
                         render={({ input, meta }) => (

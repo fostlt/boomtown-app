@@ -3,7 +3,7 @@ import React from "react";
 export const ItemPreviewContext = React.createContext();
 
 const IntitialState = {
-  imageurl: "http://via.placeholder.com/350x250?text=Please select an image",
+  imageurl: "http://via.placeholder.com/350x250?text=Please+select+an+image",
   itemowner: {},
   created: new Date(),
   title: "dummy title",
@@ -12,15 +12,18 @@ const IntitialState = {
 };
 
 const ItemPreviewProvider = props => {
-  const [item, setItem] = React.useState(  IntitialState);
-/* add item: to initital state */
+  const [item, setItem] = React.useState(IntitialState);
+  /* add item: to initital state */
+  
   const updatePreview = itemInput => {
-    const newItem = {item: { ...item, ...itemInput}}; /* itemInput is the new values -> right to left */
-    setItem({item: newItem});
+    const newItem = {
+      item: { ...item, ...itemInput }
+    }; /* itemInput is the new values -> right to left */
+    setItem({ item: newItem });
   };
 
   const resetPreview = () => {
-    setItem({item: IntitialState});
+    setItem({ item: IntitialState });
   };
 
   return (
