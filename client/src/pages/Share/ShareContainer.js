@@ -15,7 +15,6 @@ class ShareContainer extends Component {
       <ViewerContext.Consumer>
         {({ viewer }) => (
           <Query query={ALL_TAGS_QUERY} variables={{ filter: viewer.id }}>
-            {/* property var any */}
             {({ loading, error, data }) => {
                if (loading) return <FullScreenLoader />; 
               if (error) return `Error! ${error.message}`;

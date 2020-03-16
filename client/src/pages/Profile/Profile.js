@@ -13,6 +13,7 @@ import ItemCard from "../../components/ItemCard";
 
 const Profile = props => {
   const { profile, classes, viewer } = props;
+  console.log("hmu on da gram", props)
   return (
     <div className={classes.container}>
       <Card className={classes.profile}>
@@ -42,7 +43,7 @@ const Profile = props => {
           <Typography style={{ marginTop: 15}} variant="h4" color="primary">
             Shared Items
           </Typography>
-          <Grid style={{display: "flex"}}>
+          <Grid style={{display: "flex", paddingBottom: 40}}>
             {profile.items.map(item => (
               <Grid item key={item.id} md={10}>
                 <ItemCard item={item} viewer={viewer} />

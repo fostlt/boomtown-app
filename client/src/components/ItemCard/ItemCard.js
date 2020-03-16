@@ -21,12 +21,12 @@ class ItemCard extends Component {
   render() {
     let { item, classes } = this.props;
 
-    console.log(item);
+    console.log("itemid", item.itemowner.id);
     return (
       <div className={classes.container}>
         <Card className={classes.card}>
           <CardActionArea>
-            <NavLink to={item && `/profile/` + item.id}>
+            <NavLink to={item && item.itemowner.id ? `/profile/${item.itemowner.id}`:"" }>
               <CardMedia
                 style={{ height: 400 }}
                 component="img"

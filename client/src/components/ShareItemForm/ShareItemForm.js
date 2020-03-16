@@ -188,6 +188,7 @@ class ShareItemForm extends Component {
                       <Field
                         name="submit"
                         render={(input, meta) => (
+                          
                           <button
                             style={{
                               height: "50px",
@@ -203,6 +204,7 @@ class ShareItemForm extends Component {
                           >
                             Share
                           </button>
+                          
                         )}
                       />
                     </div>
